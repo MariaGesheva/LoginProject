@@ -1,21 +1,37 @@
 package com.example.demo;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javafx.scene.control.TextField;
+
+//import java.awt.*;
+import java.sql.*;
 
 public class DatabaseConnection {
     public static Connection conn;
-    static Connection ConnectToDatabase() throws SQLException {
+
+    public String ConnectToDatabase(String username, String password) throws SQLException {
         String url = "jdbc:sqlserver://SQL8002.site4now.net;database=db_a86b63_marige";
         String user = "db_a86b63_marige_admin";
-        String password = "pgsR67lG";
+        String PWD = "pgsR67lG";
 
         try
-                (Connection conn = DriverManager.getConnection(url, user, password))
-        {
-            System.out.println(conn); //simply used to check that the connection works.
-        }
+                (Connection conn = DriverManager.getConnection(url, user, PWD)) {
+            String verifyLogin = "SELECT count(1) FROM LoginProject WHERE username = '" + username + "' AND password = '" + password + "'";
+           // String insertLogin = "INSERT INTO LoginProject (username, password) VALUES '" + username + "'AND password'" + password + "'";
+            try {
+                Statement statement = conn.createStatement();
+                ResultSet queryResult = statement.executeQuery(verifyLogin);
 
-        return conn;
+                while (queryResult.next()) {
+                    if (queryResult.getInt(1) == 1) {
+                        return "Welcome!";
+                    } else {
+                        return "Invalid login! Please try again!";
+
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return "Invalid login! Please try again";
     }
 }
