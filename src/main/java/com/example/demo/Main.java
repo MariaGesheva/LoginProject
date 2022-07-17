@@ -3,20 +3,22 @@ package com.example.demo;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
 import java.io.IOException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
+public class Main extends Application{
+//    @FXML
+//    private Image monzoLogo;
+//    Image monzoLogo = new Image(getClass().getResourceAsStream("monzoLogo.png"));
 
-public class Main extends Application {
     private static Stage stg;
+
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -28,7 +30,7 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         launch();
     }
 
