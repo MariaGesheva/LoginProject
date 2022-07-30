@@ -8,6 +8,7 @@ public class DatabaseConnection {
     public static Connection conn;
 
     public String ConnectToDatabase(String username, String password) throws SQLException {
+
         String url = "jdbc:sqlserver://SQL8002.site4now.net;database=db_a86b63_marige";
         String user = "db_a86b63_marige_admin";
         String PWD = "pgsR67lG";

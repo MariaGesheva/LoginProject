@@ -2,9 +2,9 @@ package com.example.demo;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -12,12 +12,9 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 
-public class Main extends Application{
-//    @FXML
-//    private Image monzoLogo;
-//    Image monzoLogo = new Image(getClass().getResourceAsStream("monzoLogo.png"));
+public class Main extends Application {
 
-    private static Stage stg;
+    //private static Stage stg;
 
 
     @Override

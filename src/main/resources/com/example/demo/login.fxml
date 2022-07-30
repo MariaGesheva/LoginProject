@@ -40,7 +40,7 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </TextField>
-                        <Text fill="#f2e9e9" layoutX="72.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login into your myRentokil Account" wrappingWidth="362.2919921875">
+                        <Text fill="#f2e9e9" layoutX="121.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login into myRentokil" wrappingWidth="221.2919921875">
                            <font>
                               <Font name="Book Antiqua Bold" size="21.0" />
                            </font>
