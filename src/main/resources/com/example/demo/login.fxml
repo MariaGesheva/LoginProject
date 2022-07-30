@@ -8,117 +8,61 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<TabPane style="-fx-background-color: #f49999;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Login">
-   <tabs>
-      <Tab fx:id="LoginTab" closable="false" text="Login">
-         <content>
-            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: #13233b;">
-               <center>
-                  <AnchorPane prefHeight="453.0" prefWidth="388.0" style="-fx-background-color: #0A122A;" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label layoutX="79.0" layoutY="194.0" text="Username" textFill="#f52d2d">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="81.0" layoutY="244.0" text="Password" textFill="#ee3737">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="loginButton" layoutX="98.0" layoutY="405.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="31.0" prefWidth="262.0" style="-fx-background-color: #ee3737;" text="Login" textFill="#f7f1f1">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <PasswordField fx:id="password" layoutX="195.0" layoutY="244.0" promptText="Password" />
-                        <TextField fx:id="username" layoutX="195.0" layoutY="194.0" promptText="Username">
-                           <cursor>
-                              <Cursor fx:constant="DEFAULT" />
-                           </cursor>
-                        </TextField>
-                        <Text fill="#f2e9e9" layoutX="72.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login into your myRentokil Account" wrappingWidth="362.2919921875">
-                           <font>
-                              <Font name="Book Antiqua Bold" size="21.0" />
-                           </font>
-                        </Text>
-                        <Button fx:id="cancelButton" layoutX="99.0" layoutY="452.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="23.0" prefWidth="261.0" style="-fx-background-color: #ee3737;" text="Cancel" textFill="#f7f1f1">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Label fx:id="loginMessage" layoutX="81.0" layoutY="148.0" prefHeight="24.0" prefWidth="301.0" textAlignment="CENTER" textFill="RED" />
-                     </children>
-                  </AnchorPane>
-               </center>
-               <left>
-                  <ImageView fx:id="RentokilLogo" fitHeight="112.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                     <image>
-                        <Image url="@/myRentokilLogo.png" />
-                     </image>
-                  </ImageView>
-               </left>
-            </BorderPane>
-         </content>
-      </Tab>
-      <Tab text="Password Generator">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="700.0">
-               <children>
-                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: #13233b;">
-                     <center>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Button fx:id="generatePassword" layoutX="390.0" layoutY="216.0" mnemonicParsing="false" onAction="#generatePasswordOnAction" prefHeight="38.0" prefWidth="163.0" style="-fx-background-color: #ee3737;" text="Generate Password" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <TextField fx:id="displayGeneratedPassword" layoutX="298.0" layoutY="153.0" onAction="#generatePasswordOnAction" prefHeight="31.0" prefWidth="348.0" promptText="The generated password will be shown here" />
-                              <Label layoutX="374.0" layoutY="119.0" text="The generated password is: " textFill="#ee3737">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="generateMessage" layoutX="374.0" layoutY="-9.0" prefHeight="25.0" prefWidth="195.0" textAlignment="CENTER" textFill="#f25353" />
-                              <TextField fx:id="digitsTextField" layoutX="379.0" layoutY="64.0" promptText="Digits" />
-                              <Label fx:id="EnterDigitsLabel" layoutX="356.0" layoutY="31.0" text="Enter the length of the password" textFill="#ee3737">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fx:id="rentokilLogo" fitHeight="111.0" fitWidth="225.0" layoutX="-6.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/myRentokilLogo.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
-                     </center>
-                     <top>
-                        <AnchorPane prefHeight="200.0" prefWidth="700.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label layoutX="334.0" layoutY="134.0" text="Generate your password here" textFill="#f8f6f6">
-                                 <font>
-                                    <Font name="Book Antiqua Bold" size="21.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                     </top>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
-        </content>
-      </Tab>
-   </tabs>
-</TabPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: #13233b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Login">
+   <left>
+      <ImageView fitHeight="138.0" fitWidth="239.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../../img/monzoLogo.png" />
+         </image>
+      </ImageView>
+   </left>
+   <center>
+      <AnchorPane prefHeight="453.0" prefWidth="388.0" style="-fx-background-color: #0A122A;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="sendToGeneratePassword" layoutX="231.0" layoutY="368.0" mnemonicParsing="false" onAction="#generatePasswordButton" prefHeight="20.0" prefWidth="128.0" scaleShape="false" style="-fx-background-color: #f49999;" text="Generate Password" textFill="#f7f1f1" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
+            <Label layoutX="79.0" layoutY="194.0" text="Username" textFill="#f49999">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="81.0" layoutY="244.0" text="Password" textFill="#eca7a7">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginButton" layoutX="98.0" layoutY="405.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="31.0" prefWidth="262.0" style="-fx-background-color: #f49999;" text="Login" textFill="#f7f1f1">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <PasswordField fx:id="password" layoutX="195.0" layoutY="244.0" promptText="Password" />
+            <TextField fx:id="username" layoutX="195.0" layoutY="194.0" promptText="Username">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></TextField>
+            <Text fill="#f2e9e9" layoutX="72.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login into your Monzo Account" wrappingWidth="314.2919921875">
+               <font>
+                  <Font name="Book Antiqua Bold" size="21.0" />
+               </font>
+            </Text>
+            <Button fx:id="cancelButton" layoutX="99.0" layoutY="452.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="23.0" prefWidth="261.0" style="-fx-background-color: #f49999;" text="Cancel" textFill="#f7f1f1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label fx:id="loginMessage" layoutX="81.0" layoutY="148.0" prefHeight="24.0" prefWidth="301.0" textAlignment="CENTER" textFill="#ec5e5e" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
