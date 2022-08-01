@@ -2,10 +2,11 @@ package com.example.demo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import javafx.scene.control.Button;
@@ -14,8 +15,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.sql.*;
-import java.util.Objects;
+import java.sql.SQLException;
+
 
 public class Login {
 
@@ -24,22 +25,31 @@ public class Login {
     @FXML
     private Button cancelButton;
     @FXML
+    private Button generatePassword;
+    @FXML
     private Label loginMessage;
     @FXML
+    private Label generateMessage;
+    @FXML
     private TextField username;
+    @FXML
+    private PasswordField password;
     @FXML
     private TextField digitsTextField;
     @FXML
     private TextField displayGeneratedPassword;
+
     @FXML
-    private Label generateMessage;
-    @FXML
-    private PasswordField password;
+    private ImageView monzoLogo;
+
+    //  isEmpty() method returns true if, and only if, string length is 0.
+    //  isBlank() method only checks for non-whitespace characters. It does not check the string length
 
 
+    // method for checking if the password and email are in the database by calling the validateLogin method.
+    // if statement for making sure fields are not empty and displaying a message if data does not match database info
     @FXML
     public void loginButtonOnAction(ActionEvent event) throws SQLException {
-
         if (username.getText().isBlank() == false && password.getText().isBlank() == false) {
             validateLogin();
 
@@ -47,7 +57,8 @@ public class Login {
             loginMessage.setText("Fields cannot be empty!");
             if (username.getText().isEmpty()) {
                 loginMessage.setText("Username empty");
-            } else {
+            }
+            else {
                 loginMessage.setText("Password empty");
             }
         } else {
@@ -55,14 +66,15 @@ public class Login {
         }
     }
 
-
+    //calling connection method from DatabaseConnection class. SQL query converted to a string in order to run
     @FXML
     private void validateLogin() throws SQLException {
-        new DatabaseConnection();
+       // new DatabaseConnection();
         DatabaseConnection DBconnect = new DatabaseConnection();
-        String x = DBconnect.ConnectToDatabase(username.getText(),password.getText());
-        loginMessage.setText(x);
+       String x= DBconnect.ConnectToDatabase(username.getText(),password.getText());
+       loginMessage.setText(x);
     }
+
 
     @FXML
     private void cancelButtonOnAction(ActionEvent event) {
@@ -70,35 +82,21 @@ public class Login {
         stg.close();
     }
 
+
+    // Using Math.random to generate random combination of numbers and letters,
+    // the length of which is set by the user by using the digit text field.
+    // If statements checks for empty fields if not runs the for loop
+    // using
     @FXML
     public void generatePasswordOnAction() throws IOException {
 
-
-        //String randPassword = null; //part of Ascii version
         StringBuilder randPassword = null;
-        if (!digitsTextField.getText().isBlank()) {
+        if (digitsTextField.getText().isBlank() == false) {
             int digit = Integer.parseInt(digitsTextField.getText());
 
-//// ASCII version:
-//            randPassword = "";
-//            for (int i = 0; i < digit; i++) {
-//                int rand = (int) (Math.random() * 62);
-//
-//                if (rand <= 9) {
-//                    int ascii = rand + 48;
-//                    return (char) (ascii);
-//                } else if (rand <= 35) {
-//                    int ascii = rand + 55;
-//                    return (char) (ascii);
-//                } else {
-//                    int ascii = rand + 61;
-//                    return (char) (ascii);
-//                }
-//            }
-
-            // randPassword = null; //part of Ascii version
             String lower_case = "qwertyuiopasdfghjklzxcvbnm";
             String upper_case = "QWERTYUIOPASDFGHJKLZXCVBNM";
+
             randPassword = new StringBuilder();
 
             for (int i = 0; i < digit; i++) {
@@ -120,6 +118,6 @@ public class Login {
             generateMessage.setText("Please enter data!");
         }
         displayGeneratedPassword.setText(String.valueOf(randPassword));
-//        return 0 ; //part of Ascii version
     }
+
     }
